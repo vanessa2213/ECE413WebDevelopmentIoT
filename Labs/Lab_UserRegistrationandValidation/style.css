@@ -1,0 +1,11 @@
+input {
+    border: 1px;
+    border-style: solid;
+    border-color: #aaa;
+}
+
+#formErrors{
+    display: none;
+    color : red;
+
+}

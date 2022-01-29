@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>User Registration</title>
+      <link href="style.css" rel="stylesheet">
+      <script src="register.js" defer></script>
+   </head>
+
+   <body>
+      <div class = "form">
+         <label for="fullName">Full Name</label>
+         <input type="text" id="fullName" name="fullName">
+
+         <label for="email">Email</label>
+         <input type="email" id="email" name="email">
+
+         <label for="password">Password</label>
+         <input type="password" id="password" name="password" size="10" maxlength="20">
+
+         <label for="passwordConfirm">Confirm Password</label>
+         <input type="password" id="passwordConfirm" name="passwordConfirm" size="10" maxlength="20">
+
+         <input type="submit" id="submit" value="Register">
+      </div>
+
+      <div id="formErrors"  >
+         <ul id="list">
+            
+         </ul>
+      </div>   
+   </body>
+</html>
