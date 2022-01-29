@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            /* your code here */
+            $("div ~ p").each(function (index) {
+                if (index % 2 == 0) $(this).css("color", "red");
+                if (index % 2 == 1) $(this).css("color", "blue");
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+    </div>
+
+    <p>Paragraph 3</p>
+    <p>Paragraph 4</p>
+
+    <div>
+        <p>Paragraph 5</p>
+        <p>Paragraph 6</p>
+    </div>
+
+    <p>Paragraph 7</p>
+    <p>Paragraph 8</p>
+
+
+</body>
+</html>
+
