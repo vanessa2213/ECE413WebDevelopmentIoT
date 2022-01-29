@@ -1,4 +1,4 @@
-# WebDevelopmentAndTheInternetOfThings
+# ECE 413 Web Development And The Internet Of Things
 
 I took this class during my exchange program. I visit The University of Arizona on Fall 2021.
 
