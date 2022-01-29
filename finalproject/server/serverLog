@@ -1,0 +1,161 @@
+
+> myapp@0.0.0 start
+> node ./bin/www
+
+[0mGET / [36m304 [0m3.889 ms - -[0m
+[0mGET /stylesheets/indexStyle.css [36m304 [0m0.787 ms - -[0m
+[0mGET /images/smart_home.jpg [36m304 [0m0.382 ms - -[0m
+[0mGET /images/Anthony.png [36m304 [0m0.462 ms - -[0m
+[0mGET /images/Vanessa.jpg [36m304 [0m0.358 ms - -[0m
+[0mGET /images/IMG_1412.jpg [36m304 [0m0.339 ms - -[0m
+[0mGET / [36m304 [0m0.566 ms - -[0m
+[0mGET /stylesheets/indexStyle.css [36m304 [0m0.936 ms - -[0m
+[0mGET /images/smart_home.jpg [36m304 [0m1.028 ms - -[0m
+[0mGET /images/Vanessa.jpg [36m304 [0m1.217 ms - -[0m
+[0mGET /images/Anthony.png [36m304 [0m1.247 ms - -[0m
+[0mGET /images/IMG_1412.jpg [36m304 [0m1.181 ms - -[0m
+[0mGET / [32m200 [0m2.378 ms - 27253[0m
+[0mGET /images/smart_home.jpg [32m200 [0m0.723 ms - 148109[0m
+[0mGET /images/IMG_1412.jpg [32m200 [0m0.590 ms - 83060[0m
+[0mGET /stylesheets/indexStyle.css [32m200 [0m0.979 ms - 1165535[0m
+[0mGET /images/Anthony.png [32m200 [0m0.714 ms - 1253531[0m
+[0mGET /images/Vanessa.jpg [32m200 [0m0.575 ms - 24246239[0m
+[0mGET /favicon.ico [33m404 [0m171.602 ms - 2078[0m
+Error: Cannot find module './_is-array'
+Require stack:
+- /home/ec2-user/my_server/myapp/node_modules/core-js/library/modules/es6.symbol.js
+- /home/ec2-user/my_server/myapp/node_modules/core-js/library/fn/object/get-own-property-symbols.js
+- /home/ec2-user/my_server/myapp/node_modules/babel-runtime/core-js/object/get-own-property-symbols.js
+- /home/ec2-user/my_server/myapp/node_modules/babel-types/lib/index.js
+- /home/ec2-user/my_server/myapp/node_modules/constantinople/lib/index.js
+- /home/ec2-user/my_server/myapp/node_modules/pug-filters/lib/handle-filters.js
+- /home/ec2-user/my_server/myapp/node_modules/pug-filters/index.js
+- /home/ec2-user/my_server/myapp/node_modules/pug/lib/index.js
+- /home/ec2-user/my_server/myapp/node_modules/express/lib/view.js
+- /home/ec2-user/my_server/myapp/node_modules/express/lib/application.js
+- /home/ec2-user/my_server/myapp/node_modules/express/lib/express.js
+- /home/ec2-user/my_server/myapp/node_modules/express/index.js
+- /home/ec2-user/my_server/myapp/app.js
+- /home/ec2-user/my_server/myapp/bin/www
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:889:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:745:27)
+    at Module.require (internal/modules/cjs/loader.js:961:19)
+    at require (internal/modules/cjs/helpers.js:92:18)
+    at Object.<anonymous> (/home/ec2-user/my_server/myapp/node_modules/core-js/library/modules/es6.symbol.js:17:15)
+    at Module._compile (internal/modules/cjs/loader.js:1072:14)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1101:10)
+    at Module.load (internal/modules/cjs/loader.js:937:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:778:12)
+    at Module.require (internal/modules/cjs/loader.js:961:19)
+[0mGET / [32m200 [0m0.982 ms - 27253[0m
+[0mGET / [32m200 [0m0.794 ms - 27253[0m
+[0mGET / [32m200 [0m0.667 ms - 27253[0m
+[0mGET /.git/config [33m404 [0m5.760 ms - 2078[0m
+Error: Cannot find module './_is-array'
+Require stack:
+- /home/ec2-user/my_server/myapp/node_modules/core-js/library/modules/es6.symbol.js
+- /home/ec2-user/my_server/myapp/node_modules/core-js/library/fn/object/get-own-property-symbols.js
+- /home/ec2-user/my_server/myapp/node_modules/babel-runtime/core-js/object/get-own-property-symbols.js
+- /home/ec2-user/my_server/myapp/node_modules/babel-types/lib/index.js
+- /home/ec2-user/my_server/myapp/node_modules/constantinople/lib/index.js
+- /home/ec2-user/my_server/myapp/node_modules/pug-filters/lib/handle-filters.js
+- /home/ec2-user/my_server/myapp/node_modules/pug-filters/index.js
+- /home/ec2-user/my_server/myapp/node_modules/pug/lib/index.js
+- /home/ec2-user/my_server/myapp/node_modules/express/lib/view.js
+- /home/ec2-user/my_server/myapp/node_modules/express/lib/application.js
+- /home/ec2-user/my_server/myapp/node_modules/express/lib/express.js
+- /home/ec2-user/my_server/myapp/node_modules/express/index.js
+- /home/ec2-user/my_server/myapp/app.js
+- /home/ec2-user/my_server/myapp/bin/www
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:889:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:745:27)
+    at Module.require (internal/modules/cjs/loader.js:961:19)
+    at require (internal/modules/cjs/helpers.js:92:18)
+    at Object.<anonymous> (/home/ec2-user/my_server/myapp/node_modules/core-js/library/modules/es6.symbol.js:17:15)
+    at Module._compile (internal/modules/cjs/loader.js:1072:14)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1101:10)
+    at Module.load (internal/modules/cjs/loader.js:937:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:778:12)
+    at Module.require (internal/modules/cjs/loader.js:961:19)
+[0mGET / [32m200 [0m0.630 ms - 27253[0m
+[0mGET / [32m200 [0m0.640 ms - 27253[0m
+[0mGET / [32m200 [0m0.660 ms - 27253[0m
+[0mGET / [32m200 [0m0.616 ms - 27253[0m
+[0mGET / [36m304 [0m1.202 ms - -[0m
+[0mGET /stylesheets/indexStyle.css [36m304 [0m0.488 ms - -[0m
+[0mGET /images/smart_home.jpg [36m304 [0m0.303 ms - -[0m
+[0mGET /images/Anthony.png [36m304 [0m0.479 ms - -[0m
+[0mGET /images/Vanessa.jpg [36m304 [0m0.348 ms - -[0m
+[0mGET /images/IMG_1412.jpg [36m304 [0m0.332 ms - -[0m
+[0mGET / [31m500 [0m1.714 ms - 1073[0m
+Error: ENOENT: no such file or directory, open '/home/ec2-user/my_server/myapp/node_modules/pug/lib/index.js'
+    at Object.openSync (fs.js:498:3)
+    at Object.readFileSync (fs.js:394:35)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1099:18)
+    at Module.load (internal/modules/cjs/loader.js:937:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:778:12)
+    at Module.require (internal/modules/cjs/loader.js:961:19)
+    at require (internal/modules/cjs/helpers.js:92:18)
+    at new View (/home/ec2-user/my_server/myapp/node_modules/express/lib/view.js:81:14)
+    at Function.render (/home/ec2-user/my_server/myapp/node_modules/express/lib/application.js:570:12)
+    at ServerResponse.render (/home/ec2-user/my_server/myapp/node_modules/express/lib/response.js:1008:7)
+[0mGET /login [33m404 [0m1.645 ms - 1073[0m
+Error: ENOENT: no such file or directory, open '/home/ec2-user/my_server/myapp/node_modules/pug/lib/index.js'
+    at Object.openSync (fs.js:498:3)
+    at Object.readFileSync (fs.js:394:35)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1099:18)
+    at Module.load (internal/modules/cjs/loader.js:937:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:778:12)
+    at Module.require (internal/modules/cjs/loader.js:961:19)
+    at require (internal/modules/cjs/helpers.js:92:18)
+    at new View (/home/ec2-user/my_server/myapp/node_modules/express/lib/view.js:81:14)
+    at Function.render (/home/ec2-user/my_server/myapp/node_modules/express/lib/application.js:570:12)
+    at ServerResponse.render (/home/ec2-user/my_server/myapp/node_modules/express/lib/response.js:1008:7)
+[0mGET /login [33m404 [0m0.964 ms - 1073[0m
+Error: ENOENT: no such file or directory, open '/home/ec2-user/my_server/myapp/node_modules/pug/lib/index.js'
+    at Object.openSync (fs.js:498:3)
+    at Object.readFileSync (fs.js:394:35)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1099:18)
+    at Module.load (internal/modules/cjs/loader.js:937:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:778:12)
+    at Module.require (internal/modules/cjs/loader.js:961:19)
+    at require (internal/modules/cjs/helpers.js:92:18)
+    at new View (/home/ec2-user/my_server/myapp/node_modules/express/lib/view.js:81:14)
+    at Function.render (/home/ec2-user/my_server/myapp/node_modules/express/lib/application.js:570:12)
+    at ServerResponse.render (/home/ec2-user/my_server/myapp/node_modules/express/lib/response.js:1008:7)
+[0mGET /login/signUp [33m404 [0m1.084 ms - 1073[0m
+Error: ENOENT: no such file or directory, open '/home/ec2-user/my_server/myapp/node_modules/pug/lib/index.js'
+    at Object.openSync (fs.js:498:3)
+    at Object.readFileSync (fs.js:394:35)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1099:18)
+    at Module.load (internal/modules/cjs/loader.js:937:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:778:12)
+    at Module.require (internal/modules/cjs/loader.js:961:19)
+    at require (internal/modules/cjs/helpers.js:92:18)
+    at new View (/home/ec2-user/my_server/myapp/node_modules/express/lib/view.js:81:14)
+    at Function.render (/home/ec2-user/my_server/myapp/node_modules/express/lib/application.js:570:12)
+    at ServerResponse.render (/home/ec2-user/my_server/myapp/node_modules/express/lib/response.js:1008:7)
+[0mGET /login/signUp [33m404 [0m4.126 ms - 1073[0m
+Error: ENOENT: no such file or directory, open '/home/ec2-user/my_server/myapp/node_modules/pug/lib/index.js'
+    at Object.openSync (fs.js:498:3)
+    at Object.readFileSync (fs.js:394:35)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1099:18)
+    at Module.load (internal/modules/cjs/loader.js:937:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:778:12)
+    at Module.require (internal/modules/cjs/loader.js:961:19)
+    at require (internal/modules/cjs/helpers.js:92:18)
+    at new View (/home/ec2-user/my_server/myapp/node_modules/express/lib/view.js:81:14)
+    at Function.render (/home/ec2-user/my_server/myapp/node_modules/express/lib/application.js:570:12)
+    at ServerResponse.render (/home/ec2-user/my_server/myapp/node_modules/express/lib/response.js:1008:7)
+[0mGET / [31m500 [0m1.074 ms - 1073[0m
+Error: ENOENT: no such file or directory, open '/home/ec2-user/my_server/myapp/node_modules/pug/lib/index.js'
+    at Object.openSync (fs.js:498:3)
+    at Object.readFileSync (fs.js:394:35)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1099:18)
+    at Module.load (internal/modules/cjs/loader.js:937:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:778:12)
+    at Module.require (internal/modules/cjs/loader.js:961:19)
+    at require (internal/modules/cjs/helpers.js:92:18)
+    at new View (/home/ec2-user/my_server/myapp/node_modules/express/lib/view.js:81:14)
+    at Function.render (/home/ec2-user/my_server/myapp/node_modules/express/lib/application.js:570:12)
+    at ServerResponse.render (/home/ec2-user/my_server/myapp/node_modules/express/lib/response.js:1008:7)
