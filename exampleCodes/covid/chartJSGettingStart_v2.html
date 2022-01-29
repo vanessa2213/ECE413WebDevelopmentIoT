@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Chart.JS getting start</title>
+    <style>
+        body {
+            background: #ECEDEF;
+            font-family: Arial;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3vw;
+        }
+
+        div {
+            margin: 2vh 10vw;
+            width: 80vw;
+            height: 60vh;
+            border: 1px solid gray;
+        }
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    function drawGraph() {
+        const labels = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+        ];
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5, 2, 20, 30, 45],
+            }]
+        };
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        };
+
+        var myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    }
+</script>
+</head>
+<body>
+    <h1> Chart.JS getting started</h1>
+    <button onclick="drawGraph()">Draw</button>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+</body>
+</html>

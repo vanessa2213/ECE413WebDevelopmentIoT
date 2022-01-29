@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>rxDataExample</title>
+    <style>
+        body {
+            background: #ECEDEF;
+            font-family: Arial;
+        }
+        h1 {
+            text-align: center;
+            font-size: 3vw;
+        }
+        #rxData {
+            margin: 2vh 5vw;
+            width: 90vw;
+            height: 60vh;
+        }
+        div {
+            margin: 2vh 5vw;
+            width: 90vw;
+        }
+    </style>
+    <script>
+        var gCtrlVar = {
+            baseUrl: 'https://api.covidactnow.org/v2/',
+            apiKey: 'Your key here'        
+        };
+
+        function httpGet(theUrl) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.addEventListener("load", function () {
+                if (this.status == 200) {
+                    let result = JSON.parse(this.responseText);
+                    document.getElementById('rxData').innerHTML = JSON.stringify(result, null, 2);
+                }
+                else {
+                    document.getElementById('rxData').innerHTML = 'rx error';
+                }
+            });
+            xmlHttp.open("GET", theUrl, true); // true for asynchronous request
+            xmlHttp.send();
+        }
+        // query a single county: PIMA
+        function getCountyData(fips) {
+            let theUrl = gCtrlVar.baseUrl + 'county/' + fips + '.json' + '?apiKey=' + gCtrlVar.apiKey;
+            httpGet(theUrl);
+        }
+        // query a single state: AZ
+        function getStateData(state) {
+            let theUrl = gCtrlVar.baseUrl + 'state/' + state + '.json' + '?apiKey=' + gCtrlVar.apiKey;
+            httpGet(theUrl);
+        }
+        // query all counties for a single state: AZ
+        function getAllCounties(state) {
+            let theUrl = gCtrlVar.baseUrl + 'county/' + state + '.json' + '?apiKey=' + gCtrlVar.apiKey;
+            httpGet(theUrl);
+        }
+        // query historic data for a single county: Pima
+        function getHistoricCountyData(fips) {
+            let theUrl = gCtrlVar.baseUrl + 'county/' + fips + '.timeseries.json' + '?apiKey=' + gCtrlVar.apiKey;
+            httpGet(theUrl);
+        }
+
+    </script>
+</head>
+<body>
+    <h1>rxData example using COVID Act Now API </h1>
+    <div>
+        <!-- buttons for test-->
+        <!-- query a single state: AZ -->
+        <button onclick="getStateData('AZ')">Single state (AZ)</button>
+        <!-- query a single county: PIMA -->
+        <button onclick="getCountyData('04019')">Single county (Pima)</button>
+        <!-- query all counties for a single state: AZ -->
+        <button onclick="getAllCounties('AZ')">All counties in AZ</button>
+        <!-- query historic data for a single county: Pima -->
+        <button onclick="getHistoricCountyData('04019')">Historical County data (Pima)</button>
+    </div>
+    <!-- display rxData in textarea -->
+    <textarea id="rxData" readonly></textarea>
+</body>
+</html>

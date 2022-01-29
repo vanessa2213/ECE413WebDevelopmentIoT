@@ -1,0 +1,338 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>COVID dashboard example</title>
+    <style>
+        body {
+            background-color: white;
+            font-family: Arial;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        /* Text Buttons: https://www.w3schools.com/howto/howto_css_text_buttons.asp */
+        .btn {
+            border: none;
+            background-color: inherit;
+            padding: 14px 28px;
+            font-size: 20px;
+            cursor: pointer;
+            display: inline-block;
+            color: blue;
+        }
+        .btn:hover {
+            background: #b7f2f8;
+        }
+        div, table {
+            box-sizing: border-box;
+            
+        }
+        
+        .container {
+            margin: 2vh 5vw;
+            width: 90vw;
+            text-align: center;
+        }
+
+        table {
+            width: 90%;
+            height: 12vh;
+            table-layout: fixed;
+            border-collapse: collapse;
+            margin: 5px 5%;
+            font-size: 15px;
+        }
+
+        td {
+            overflow: hidden;
+            border: 1px solid gray;
+            text-align: center;
+            height: 50%;
+            padding: 5px;
+            color: black;
+        }
+
+        #chart1 {
+            display: inline-block;
+            width: 30%;
+            height: 45vh;
+            border: 1px solid gray;
+        }
+
+        #chart2 {
+            display: inline-block;
+            width: 70%;
+            height: 45vh;
+            float: right;
+            border: 1px solid gray;
+        }
+
+        #rxData {
+            margin: 0 5vw;
+            width: 90vw;
+            height: 40vh;
+        }
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var gCtrlVar = {
+            baseUrl: 'https://api.covidactnow.org/v2/',
+            apiKey: 'your key here',
+            state: 'AZ',
+            fips: '04019'            // https://www.nrcs.usda.gov/wps/portal/nrcs/detail/?cid=nrcs143_013697
+        };
+
+        var gRxData = {
+            state: {},
+            county: {},
+            all_counties: {},
+            county_historical: {}
+        };
+
+        var gCharts = {
+            doughnut: null,
+            barLine: null
+        };
+
+        function makeUrl(option) {
+            let curUrl = gCtrlVar.baseUrl;
+
+            switch (option) {
+                case 'state':
+                    curUrl += 'state/' + gCtrlVar.state + '.json' + '?apiKey=' + gCtrlVar.apiKey;
+                    break;
+                case 'county':
+                    curUrl += 'county/' + gCtrlVar.fips + '.json' + '?apiKey=' + gCtrlVar.apiKey;
+                    break;
+                case 'all_counties':
+                    curUrl += 'county/' + gCtrlVar.state + '.json' + '?apiKey=' + gCtrlVar.apiKey;
+                    break;
+                case 'county_historical':
+                    curUrl += 'county/' + gCtrlVar.fips + '.timeseries.json' + '?apiKey=' + gCtrlVar.apiKey;
+                    break;
+                default:
+                    curUrl = null;
+                    break;
+            }
+
+            return curUrl;
+        }
+
+        function httpGet(theUrl, option) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.addEventListener("load", function () { displayResult(this, option) });
+            xmlHttp.open("GET", theUrl, true); // true for asynchronous request
+            xmlHttp.send();
+        }
+
+        function displayResult(evt, option) {
+            if (evt.status == 200) {
+                document.getElementById('rxData').innerHTML = JSON.stringify(JSON.parse(evt.responseText), null, 2);
+                if (option in gRxData) gRxData[option] = JSON.parse(evt.responseText);
+                if ((option === 'state') || (option === 'county')) updateTable(option);
+                if (option == 'all_counties') updateDoughnutChart();
+                if (option == 'county_historical') updateBarLineChart();
+            }
+            else {
+                document.getElementById('rxData').innerHTML = 'rx error';
+            }
+        }
+
+        function getData(option) {
+            let curUrl = makeUrl(option);
+            if (curUrl != null) {
+                httpGet(curUrl, option);
+            }
+        }
+
+        function updateTable(option) {
+            /* Add your code here*/
+            const tableName = option + '_table';
+            const tableSearch = document.getElementById(tablename);
+            tableSearch.rows[1].cells[0].innerHTML = gRxData[option]['actuals']['cases']
+
+        }
+        
+        function updateDoughnutChart() {
+
+            ///////////////////////////////////////////////////////////////////////////////////
+            // need to change this part for your lables, data, and backgroundColor
+            // 1. extract each county name from gRxData.all_counties
+            // 2. extract newcase in each county from gRxData.all_counties
+            // 3. update bgColor using the getRandomRgb() function
+            let numOfCounties = gRxData.all_counties.length;
+            const labels = [];
+            const newcases = [];
+            const bgColor = [];
+            for(let i = 0; i<numOfCounties; i++){
+                let curCounty = gRxData.all_counties[i].county;
+                curCounty = curCounty.substring(0,curCounty.indexOf(" County"));
+                labels.push(curCounty);
+                newcases.push(gRxData.all_counties[i].actuals.newcases);
+                bgColor.push(getRandomRgb());
+            }
+            ///////////////////////////////////////////////////////////////////////////////////  
+            
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'New cases',
+                    data: newcases,
+                    backgroundColor: bgCdolor,
+                    hoverOffset: 4
+                }]
+            };
+
+            const config = {
+                type: 'doughnut',
+                data: data,
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'New cases'
+                        }
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            };
+
+            if (gCharts.doughnut == null) {
+                ctx = document.getElementById('doughnutChart');
+                gCharts.doughnut = new Chart(ctx, config);
+            }
+                        
+        }
+
+        // https://stackoverflow.com/questions/23095637/how-do-you-get-random-rgb-in-javascript
+        function getRandomRgb() {
+            var num = Math.round(0xffffff * Math.random());
+            var r = num >> 16;
+            var g = num >> 8 & 255;
+            var b = num & 255;
+            return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+        }
+
+        function updateBarLineChart() {
+
+            ///////////////////////////////////////////////////////////////////////////////////
+            // need to change this part for your lables, data (newcases), and 7-day average
+            // 1. extract date (30 days) from gRxData.county_historical
+            // 2. extract newcase (30 days) from gRxData.county_historical
+            // 3. calculate 7-day average
+            let timeSeries = gRxData.county_historical.actualsTimeseries;
+            const numOfDays =  timeSeries.length;
+            let windowSize = 30;
+
+            const labels = [];
+            const newcases = [];
+            const avg7Days = [];
+            for (let i = 0; i<windowSize; i++){
+                labels.unshift(timeSeries[numOfDays-1-i].date);
+                newcases.unshift(timeSeries[numOfDays-1-i].newCases);
+                
+            }
+            ///////////////////////////////////////////////////////////////////////////////////
+
+            const data = {
+                labels: labels,
+                datasets: [{
+                    type: 'bar',
+                    label: 'New cases',
+                    data: newcases,
+                    borderColor: 'rgb(255, 99, 132)',
+                    backgroundColor: 'rgba(255, 0, 0, 0.2)'
+                }, {
+                    type: 'line',
+                    label: '7 day average',
+                    data: avg7Days,
+                    fill: false,
+                    borderColor: 'rgb(0, 0, 255)'
+                }]
+            };
+            const config = {
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            };
+
+            if (gCharts.barLine == null) {
+                ctx = document.getElementById('barLineChart');
+                gCharts.barLine = new Chart(ctx, config);
+            }
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <h1>COVID-19 dashboard example</h1>
+<div class="container">
+    <!-- buttons for test-->
+    <!-- query a single state: AZ -->
+    <button class="btn" onclick="getData('state')">Single state (AZ)</button>
+    <!-- query a single county: PIMA -->
+    <button class="btn" onclick="getData('county')">Single county (Pima)</button>
+    <!-- query all counties for a single state: AZ -->
+    <button class="btn" onclick="getData('all_counties')">All counties in AZ</button>
+    <!-- query historic data for a single county: Pima -->
+    <button class="btn" onclick="getData('county_historical')">Historical County data (Pima)</button>
+</div>
+    <div class="container">
+<table id="state_table">
+    <caption>State dashboard</caption>
+    <tr>
+        <td>Number of Cases</td>
+        <td>Number of Deaths</td>
+        <td>Number of New Cases reported today</td>
+        <td>Number of New Deaths reported today</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+    </div>
+    <div class="container">
+        <table id="county_table">
+            <caption>County dashboard</caption>
+            <tr>
+                <td>Number of Cases</td>
+                <td>Number of Deaths</td>
+                <td>Number of New Cases reported today</td>
+                <td>Number of New Deaths reported today</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <div id="chart1">
+            <canvas id="doughnutChart"></canvas>
+        </div>
+        <div id="chart2">
+            <canvas id="barLineChart"></canvas>
+        </div>
+    </div>
+    <textarea id="rxData"></textarea>
+
+
+</body>
+</html>
