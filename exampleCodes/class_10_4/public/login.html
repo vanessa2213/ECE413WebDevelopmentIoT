@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Form Submission Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script>
+      function testFunc() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.addEventListener("load", function () {
+            if (this.status == 500) {
+              window.alert(this.responseText);
+            }
+        });
+        xmlHttp.open("GET", "/users/test");
+        xmlHttp.send();
+      }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="left brand-logo valign-wrapper">Home</a>
+        <br />
+        <h1>Form Submission Example</h1>
+        <br />
+
+        <form action="/users/login" method="POST">
+            <div>
+                <label for="firstName">First Name: </label>
+                <input type="text" id="firstName" placeholder="Enter first name" name="firstName">
+            </div>
+            <div>
+                <label for="lastName">Last Name: </label>
+                <input type="text" id="lastName" placeholder="Enter last name" name="lastName">
+            </div>
+            <br />
+            <input type="submit">
+        </form>
+        <br />
+        <button onclick="testFunc()">500 error test</button>
+    </div>
+</body>
+</html>

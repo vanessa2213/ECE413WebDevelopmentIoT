@@ -1,0 +1,17 @@
+{
+  "name": "form_example",
+  "version": "1.0.0",
+  "description": "ECE 413/513 node.js form example",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
