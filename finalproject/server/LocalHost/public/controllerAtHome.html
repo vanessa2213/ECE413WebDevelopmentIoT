@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Serial communication example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheets/switch.css">
+    <link rel="stylesheet" href="stylesheets/controllerAtHome.css">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+    <h1>Controller at home</h1>
+
+    <div class="centerDiv">
+        <table>
+            <tr>
+                <td colspan="4"><span id="curTime"></span></td>
+            </tr>
+            <tr>
+                <th colspan="4">Serial Comm. </th>
+            </tr>
+            <tr>
+                <td>
+                    <select id="com_ports_list">
+              <option selected value="null">Please select your port</option>
+            </select>
+                </td>
+                <td>
+                    <button id="btnConnect" onclick="connectDisconnect()">Connect</button>
+                </td>
+                <td>COM status:</td>
+                <td>
+                    <input id="com_status" name="com_status" style="width:600px;" readonly value="">
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <table>
+
+            <tr>
+                <th colspan="4">Thermostat</th>
+            </tr>
+            <tr>
+                <td>Fan:</td>
+                <td>
+                    <div class="toggleswitch">
+                        <input type="checkbox" name="toggleswitch" class="toggleswitch-checkbox" id="fanonoff" onchange="FanControl( this.checked)">
+                        <label class="toggleswitch-label" for="fanonoff">
+                            <span class="toggleswitch-inner onManualSwitchText"></span>
+                            <span class="toggleswitch-switch"></span>
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>System mode:</td>
+                <td>
+                    <select id="system_mode_list" onchange="SystemMode(this.name, this.value)">
+                        
+                        <option name = "off" value="0" selected>OFF</option>
+                        <option name = "cool" value="1">COOL</option>
+                        <option name = "heat" value="2">HEAT</option>
+
+                    </select>
+                </td>
+
+
+            </tr>
+
+            <tr>
+                <td>Temperature setting:</td>
+                <td><input type="text" id="temp_set" name="temp_set" placeholder="Enter desire temperature"></td>
+                <td><input type="button" id="but_temp" name="but_temp" value="SET" onclick="DesireTemp()"></td>
+            </tr>
+            <tr>
+                <td>
+                    Current temperature:
+                </td>
+                <td id="current_temp">
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Current humidity:
+                </td>
+                <td id="current_hum">
+
+                </td>
+            </tr>
+
+
+        </table>
+        <br/>
+        <table>
+            <tr>
+                <th colspan="2">Smart Bulb</th>
+                <th colspan="2">Door</th>
+            </tr>
+            <tr>
+                <td>Brightness:</td>
+                <td id="bulb_brightness"> 50% </td>
+                <td>Door is:</td>
+                <td id="door_status">closed</td>
+
+            </tr>
+            <tr>
+                <td>Color:</td>
+                <td id="bulb_colorR"> R: </td>
+                <td id="bulb_colorG"> G: </td>
+                <td id="bulb_colorB"> B:</td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+
+> myapp@0.0.0 start
+> node ./bin/www
+
+[0mGET / [32m200 [0m5.031 ms - 27253[0m
+[0mGET / [32m200 [0m0.949 ms - 27253[0m
+[0mGET / [32m200 [0m0.615 ms - 27253[0m
+[0mGET / [32m200 [0m0.706 ms - 27253[0m
+[0mGET / [32m200 [0m0.679 ms - 27253[0m
+[0mGET /login [36m304 [0m2.570 ms - -[0m
+[0mGET /stylesheets/loginStyle.css [36m304 [0m0.495 ms - -[0m
+[0mGET /javascripts/login.js [36m304 [0m0.372 ms - -[0m
+[0mGET /login [36m304 [0m0.864 ms - -[0m
+[0mGET /javascripts/login.js [36m304 [0m0.944 ms - -[0m
+[0mGET /stylesheets/loginStyle.css [36m304 [0m0.928 ms - -[0m
+[0mGET /login [32m200 [0m1.285 ms - 986[0m
+[0mGET /stylesheets/loginStyle.css [36m304 [0m0.464 ms - -[0m
+[0mGET /javascripts/login.js [36m304 [0m0.355 ms - -[0m
