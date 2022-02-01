@@ -1,0 +1,150 @@
+/*Nav Bar*/
+.Navbar ol:last-child{
+  border-right: none;
+}
+.Navbar ol:hover{
+  background-color: rgb(250, 9, 238);
+}
+.Navbar ol{
+  display: inline;
+  color: white;
+  padding: 14px 50px;
+  border-right:1px solid #bbb;
+}
+.Navbar ul{
+  background-color: rgb(101,74,255) ;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.fr-clearfix::after {
+  clear: both;
+  display: block;
+  content: "";
+  height: 0; 
+}
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover {
+  color:#12e96b; 
+  text-decoration:none; 
+  cursor:pointer;  
+}
+/**/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(181,177,173);
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 50%;
+  padding: 0 10px;
+  height: 50%;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+ /* Welcome banner */
+.Welcome h1{
+  text-align: center;
+  color:white;
+}
+
+.Welcome{
+  background-image: url('https://images.unsplash.com/photo-1563089145-599997674d42?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHVycGxlJTIwYWJzdHJhY3R8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80');
+  margin: 0;
+  padding:2.5%;
+  margin-bottom:10px;
+}
+
+.js-nametag:nth-child(1){
+  animation-name: fade;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  animation-direction: alternate-reverse;  
+}
+
+.js-nametag:nth-child(2){
+  animation-name: fade;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  animation-direction: alternate;
+}
+
+@keyframes fade{
+    0%,50% {
+      opacity: 0;
+}
+    100%{
+      opacity: 1;
+  }
+}
+/*GUI Style*/
+h1 {
+  text-align: center;
+  color: black;
+}
+.centerDiv {
+  margin: 0 auto;
+  margin-top: 5%;
+  border:1px solid black;
+  border-radius: 50px;
+  width: 1000px;
+  background: lightgray;
+}
+table {
+  width: 100%;
+}
+td, th {
+  height: 35px;
+  text-align: center;
+  color: white;
+}
+th {
+  background-color: rgb(101,74,255);
+}
+/**/
+#temp, #humidity, #doorStatus{
+  font-family: 'Century Gothic', CenturyGothic;
+  font-size: x-large;
+}
+.class{
+  font-family: 'Century Gothic', CenturyGothic;
+  font-size:medium
+}

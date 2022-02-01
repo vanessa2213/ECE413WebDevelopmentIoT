@@ -1,0 +1,141 @@
+.Msg1{
+  text-align: center;
+}
+
+.Options {
+  text-align: left;
+}
+/*Navigation Tabs*/
+.Navbar ol:last-child{
+  border-right: none;
+}
+.Navbar ol:hover{
+  background-color: rgb(250, 9, 238);
+}
+.Navbar ol{
+  display: inline;
+  color: white;
+  padding: 14px 50px;
+  border-right:1px solid #bbb;
+}
+.Navbar ul{
+  background-color:#4929ff ;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+a:hover {
+  color:#12e96b; 
+  text-decoration:none; 
+  cursor:pointer;  
+}
+.fr-clearfix::after {
+  clear: both;
+  display: block;
+  content: "";
+  height: 0; 
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:rgb(101,74,255);
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 50%;
+  padding: 0 10px;
+  height: 50%;
+}
+.column2 {
+  float: right;
+  width: 50%;
+  padding: 0 10px;
+  height: 50%;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+
+/* Welcome bar */
+.Welcome h1{
+  text-align: center;
+  color:white;
+}
+
+.Welcome{
+  background-image: url("https://i.pinimg.com/originals/a9/68/0e/a9680e517bd3c6b8de6b231e383fd05f.jpg");
+  margin: 0;
+  padding:10%;
+  margin-bottom:20px;
+}
+/*Slider Style*/
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: rgb(101,74,255);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border: 50%;
+  background: rgb(101,74,255);
+  cursor: pointer;
+}
